@@ -19,7 +19,7 @@ public:
         while (current != NULL)
         {
             count++;
-            current = current->next
+            current = current->next;
         }
         return count;
     }
@@ -27,13 +27,15 @@ public:
     {
         struct ListNode *current = head;
         int count = 0;
+        int value;
         while (current != NULL)
         {
             if (count == index)
-                return (current->val);
+                int value = current->val;
             count++;
             current = current->next;
         }
+        return value;
     }
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
     {
@@ -41,8 +43,9 @@ public:
         int listTwoCount = getNumberOfNodes(l2);
         bool element1Okay;
         bool element2Okay;
+        struct ListNode *sumList;
 
-        for (inti = 0; i < listOneCount; i++)
+        for (int i = 0; i < listOneCount; i++)
         {
             int val = getNodeValue(l1, i);
             if ((val >= 0) && (val <= 9))
@@ -54,7 +57,7 @@ public:
                 element1Okay = false;
             }
         }
-        for (inti = 0; i < listTwoCount; i++)
+        for (int i = 0; i < listTwoCount; i++)
         {
             int val = getNodeValue(l2, i);
             if ((val >= 0) && (val <= 9))
@@ -69,18 +72,28 @@ public:
         if ((listOneCount >= 1) && (listOneCount <= 100) && (listTwoCount >= 1) && (listTwoCount <= 100) && (element1Okay) && (element2Okay))
         {
             int sum, large;
-            struct ListNode *sumList;
             if (listOneCount < listTwoCount)
+            {
                 large = listTwoCount;
+            }
             else
-                (listOneCount > listTwoCount)
-                    large = listOneCount;
+            {
+                large = listOneCount;
+            }
             for (int i = 0; i < large; i++)
             {
                 int add = getNodeValue(l1, i) + getNodeValue(l2, i);
                 sum += add / 10;
                 sumList->val = add % 10;
             }
+
+            sumList->val = sum;
         }
+        else
+        {
+            std::cout << "Invalid linked list!" << std::endl;
+        }
+
+        return sumList;
     }
 };
