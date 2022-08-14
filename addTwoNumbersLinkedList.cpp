@@ -37,14 +37,6 @@ public:
         }
         return value;
     }
-    void push(struct ListNode **head_ref, int new_data)
-    {
-        struct ListNode *new_node = (struct ListNode *)malloc(sizeof(struct ListNode));
-
-        new_node->val = new_data;
-        new_node->next = (*head_ref);
-        (*head_ref) = new_node;
-    }
 
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
     {
@@ -80,7 +72,7 @@ public:
         }
         if ((listOneCount >= 1) && (listOneCount <= 100) && (listTwoCount >= 1) && (listTwoCount <= 100) && (element1Okay) && (element2Okay))
         {
-            int sum, large;
+            int large;
             if (listOneCount < listTwoCount)
             {
                 large = listTwoCount;
@@ -92,14 +84,19 @@ public:
 
             for (int i = 0; i < large; i++)
             {
+                int sum = 0;
                 int add = getNodeValue(l1, i) + getNodeValue(l2, i);
-                sum = (sum + add) / 10;
                 int mod = (sum + add) % 10;
-                push(&sumList, mod);
-                if (i == large)
-                {
-                    push(&sumList, sum);
+                sum += (sum + add) / 10;
+                
+                if(i == 0){
+                    sumList = new ListNode(mod);
+                }else{
+                    struct ListNode *newNode = new ListNode(mod);
+                    newNode->next = sumList;
+                    sumList = newNode;
                 }
+                
             }
         }
         else
