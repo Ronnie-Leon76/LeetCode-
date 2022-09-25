@@ -31,10 +31,16 @@ if t>=1 and t<=25:
         for j in range(1, n+1):
             a = get_number()
             sequence.append(a)
-            a += 1
-            max_sum += a
-        # seq_len = len(sequence)
-        # new_sequence = [sequence[i] for i in range(1, seq_len+1)]
+        
+        seq_len = len(sequence)
+        p = 0
+        while p < seq_len:
+            max_sum += sequence[p] + sequence[p+1]
+            if sequence[p]>sequence[p+1]:
+                temp = sequence[p+1]
+                sequence[p+1] = sequence[p]
+                sequence[p] = temp
+            p = p + 1
         print(max_sum)
         print(sequence)
             
