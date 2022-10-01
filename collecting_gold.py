@@ -34,7 +34,7 @@ def dijikstra(graph,start,goal)-> list:
     shortest_distance[start] = 0
     while unseenNodes:
         minNode = None
-        # ensure minNode is set to the start Node
+        # ensure minNode is set to the Node with the least weight
         for node in unseenNodes:
             if minNode is None:
                 minNode = node
