@@ -23,7 +23,7 @@ def get_number():
 import numpy
 # import scipy
 
-def dijikstra(graph,start,goal):
+def dijikstra(graph,start,goal)-> list:
     shortest_distance = {}
     predecessor = {}
     unseenNodes = graph
@@ -45,7 +45,7 @@ def dijikstra(graph,start,goal):
                 shortest_distance[childNode] = weight + shortest_distance[minNode]
                 predecessor[childNode] = minNode
             
-        unseenNode.pop(minNode)
+        unseenNodes.pop(minNode)
         currentNode = goal
         while currentNode != start:
             try:
@@ -58,7 +58,7 @@ def dijikstra(graph,start,goal):
         if shortest_distance[goal] != infinity:
             # print("Shortest distance is: " + str(shortest_distance[goal]))
             # print("And the path is: " + str(path))
-        return path
+            return path
         
 
 n = get_number()
@@ -72,11 +72,11 @@ if n>=1 and n<=20000:
         for i in range(n):
             min = ids[0]
             max = ids[0]
+            ids[i] = get_number()
             if ids[i]<min:
                 min = ids[i]
             elif ids[i]>max:
                 max = ids[i]
-            ids[i] = get_number()
         for j in range(m):
             graph = {}
             parentNode = str(get_number())
