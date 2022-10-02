@@ -82,7 +82,7 @@ if n>=1 and n<=20000:
             parentNode = str(get_number())
             childNode = str(get_number())
             weight = get_number()
-            graph[parentNode] = [ childNode: weight ]
+            graph[parentNode] = [ { childNode: weight } ]
         shortest_path = dijikstra(graph, str(min), str(max))
         product = 1
         for i in shortest_path:
