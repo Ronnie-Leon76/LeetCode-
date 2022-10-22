@@ -27,9 +27,11 @@ def get_number():
 
 strs = []   
 strs_dict = {}
+n = get_number()
 for i in range(n):
-    n = get_number()
+    s = get_number()
     strs.append(n)
+    
 
 for j in strs:
     charList = [0]*26
