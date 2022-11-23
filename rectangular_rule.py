@@ -1,11 +1,11 @@
-from sympy import *
+from sympy import integrate, Symbol
 
 h = 0.1
 X_k = [0,]
 f_X_k = []
 
 
-# sympy's integrate function
+# function to find the exact solution
 def integrate_(f, x, a, b):
     return integrate(f, (x, a, b))
 
