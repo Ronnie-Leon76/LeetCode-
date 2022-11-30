@@ -1,6 +1,15 @@
+"""
+In order to run this program you need to install a virtual environment using the command:
+python -m venv env
+You will need to install virtualenvwrapper in order to create a virtual environment.
+Then install sympy module using the command:
+pip install sympy
+Sympy is a scientific library to perform both definite and indefinite integrals
+"""
+
 from sympy import integrate, Symbol
 
-h = 0.1
+h = 0.25
 X_k = [0,]
 f_X_k = []
 
